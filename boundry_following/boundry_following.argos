@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<argos-configuration>
+
+  <!-- ************************* -->
+  <!-- * General configuration * -->
+  <!-- ************************* -->
+  <framework>
+    <experiment length="0" ticks_per_second="10" />
+    <system threads="0" />
+  </framework>
+
+  <!-- *************** -->
+  <!-- * Controllers * -->
+  <!-- *************** -->
+  <controllers>
+
+    <lua_controller id="lua1">
+      <actuators>
+        <differential_steering implementation="default" />
+        <leds implementation="default" medium="leds" />
+      </actuators>
+      <sensors>
+        <differential_steering implementation="default" />
+        <footbot_motor_ground implementation="rot_z_only" />
+        <footbot_proximity implementation="default" show_rays="false" />
+        <colored_blob_omnidirectional_camera implementation="rot_z_only" medium="leds" show_rays="false" />
+      </sensors>
+      <params script="boundry_following.lua" />
+    </lua_controller>
+
+  </controllers>
+
+  <!-- *********************** -->
+  <!-- * Arena configuration * -->
+  <!-- *********************** -->
+  <arena size="9, 6, 1" center="0,0,0.5">
+
+
+    <floor id="f" source="image" path="./track.png" />
+
+    <box id="bn" size="0.1, 6, 0.2" movable="false">
+      <body position="4.5,0,0"  orientation="0,0,0" />
+    </box>
+    <box id="bs" size="0.1, 6, 0.2" movable="false">
+      <body position="-4.5,0,0" orientation="0,0,0" />
+    </box>
+    <box id="be" size="9, 0.1, 0.2" movable="false">
+      <body position="0,-3,0" orientation="0,0,0" />
+    </box>
+    <box id="bw" size="9, 0.1, 0.2" movable="false">
+      <body position="0,3,0" orientation="0,0,0" />
+    </box>
+
+    <distribute>
+      <position method="uniform" min="-2,-2,0" max="2,2,0" />
+      <orientation method="uniform" min="0,0,0" max="360,0,0" />
+      <entity quantity="1" max_trials="100">
+        <foot-bot id="fb1">
+          <controller config="lua1" />
+        </foot-bot>
+      </entity>
+    </distribute>
+
+  </arena>
+
+  <!-- ******************* -->
+  <!-- * Physics engines * -->
+  <!-- ******************* -->
+  <physics_engines>
+    <dynamics2d id="dyn2d" />
+  </physics_engines>
+
+  <!-- ********* -->
+  <!-- * Media * -->
+  <!-- ********* -->
+  <media>
+    <led id="leds" />
+  </media>
+
+
+  <!-- ****************** -->
+  <!-- * Visualization * -->
+  <!-- ****************** -->
+  <visualization>
+    <qt-opengl lua_editor="false">
+      <camera>
+        <placements>
+          <!-- <placement index="0" position="10.8628,0,1.5" look_at="0,0,0" up="0,0,1" lens_focal_length="65" /> -->
+          <placement index="0" position="0,0.1,18" look_at="0,0,0" up="0,0,1" lens_focal_length="65" />
+          <!-- <placement idx="0" position="-2,0.1,8" look_at="-1.5,0.1,0" lens_focal_length="5" /> -->
+          <!-- <placement idx="0" position="0,0,6.5" look_at="0,0,0" up="1,0,0" lens_focal_length="14" /> -->
+        </placements>
+      </camera>
+    </qt-opengl>
+  </visualization>
+
+</argos-configuration>
+
+

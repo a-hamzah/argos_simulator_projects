@@ -19,8 +19,6 @@ https://youtu.be/k_27QTmH2JU?si=qq-lVNiB2NrxHtyP
 ## Usage
 Make sure that argos3-examples work ok (as explained in the video) before moving further:
 ```javascript
-mkdir ~/obstacle_avoidance
-cd obstacle_avoidance
 git clone https://github.com/a-hamzah/argos_simulator_projects.git
 cd argos_simulator_projects/obstacle_avoidance
 argos3 -c obstacleAvoidance.argos

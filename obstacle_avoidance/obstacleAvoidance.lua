@@ -21,7 +21,7 @@ function driveAsCar(forwardSpeed, angularSpeed)
  
  function step()
     if currentState == states.WALKING then
-       driveAsCar(robot.random.uniform(10, 20), robot.random.uniform(-10, 10))  -- Walk forward
+       driveAsCar(robot.random.uniform(5, 15), robot.random.uniform(-5, 5))  -- Walk forward
  
        -- Check proximity sensors for obstacles
        local obstacleDetected = false

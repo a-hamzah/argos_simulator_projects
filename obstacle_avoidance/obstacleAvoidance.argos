@@ -33,7 +33,7 @@
         <colored_blob_omnidirectional_camera implementation="rot_z_only" medium="leds" show_rays="false" />
       </sensors>
 
-      <params script="obstacleAvoidance.lua" />
+      <params script="obstacleAvoidance1.lua" />
     </lua_controller>
 
   </controllers>
@@ -66,14 +66,84 @@
     <!-- Robots -->
 
     <distribute>
-      <position method="uniform" min="-2,-2,0" max="2,2,0" />
-      <orientation method="uniform" min="0,0,0" max="360,0,0" />
+      <position method="uniform" min="-1,-1,0" max="1,1,0" />
+      <orientation method="uniform" min="0,0,0" max="120,0,0" />
       <entity quantity="10" max_trials="100">
         <foot-bot id="fb1" rab_range="0.7">
           <controller config="lua1" />
         </foot-bot>
       </entity>
     </distribute>
+
+    
+
+    <!-- Food -->
+
+    <distribute>
+      <position method="uniform" min="-6,1,0" max="-5.5,2,0" />
+      <orientation method="constant" values="0,0,0" />
+      <entity quantity="5" max_trials="100" base_num="1">
+        <cylinder id="cyl_l_b" radius="0.1" height="0.05" movable="true" mass="0.1">
+          <leds medium="leds">
+            <led offset="0,0,0.1" anchor="origin" color="red" />
+          </leds>
+        </cylinder>
+      </entity>
+    </distribute>
+
+        <distribute>
+      <!-- <position method="uniform" min="-2,1,0" max="-2.5,2,0" /> -->
+      <position method="uniform" min="5.5,1,0" max="6,2,0" />
+      <orientation method="constant" values="0,0,0" />
+      <entity quantity="5" max_trials="100" base_num="1">
+        <cylinder id="cyl_l_t" radius="0.1" height="0.05" movable="true" mass="0.1">
+          <leds medium="leds">
+            <led offset="0,0,0.1" anchor="origin" color="red" />
+          </leds>
+        </cylinder>
+      </entity>
+    </distribute>
+
+
+            <distribute>
+      <!-- <position method="uniform" min="-2,1,0" max="-2.5,2,0" /> -->
+    <position method="uniform" min="5.5,-2,0" max="6,-1,0" />
+      <orientation method="constant" values="0,0,0" />
+      <entity quantity="5" max_trials="100" base_num="1">
+        <cylinder id="cyl_r_t" radius="0.1" height="0.05" movable="true" mass="0.1">
+          <leds medium="leds">
+            <led offset="0,0,0.1" anchor="origin" color="red" />
+          </leds>
+        </cylinder>
+      </entity>
+    </distribute>
+
+    <distribute>
+      <position method="uniform" min="-6,-2,0" max="-5.5,-1,0" />
+      <orientation method="constant" values="0,0,0" />
+      <entity quantity="5" max_trials="100" base_num="1">
+        <cylinder id="cyl_r_l" radius="0.1" height="0.05" movable="true" mass="0.1">
+          <leds medium="leds">
+            <led offset="0,0,0.1" anchor="origin" color="red" />
+          </leds>
+        </cylinder>
+      </entity>
+    </distribute>
+
+        <!-- <distribute>
+      <position method="uniform" min="6,-1,0" max="5.5,-1,0" />
+      <orientation method="constant" values="0,0,0" />
+      <entity quantity="5" max_trials="100" base_num="1">
+        <cylinder id="cyl_r_b" radius="0.1" height="0.05" movable="true" mass="0.1">
+          <leds medium="leds">
+            <led offset="0,0,0.1" anchor="origin" color="red" />
+          </leds>
+        </cylinder>
+      </entity>
+    </distribute> -->
+
+
+
   </arena>
 
   <!-- ******************* -->

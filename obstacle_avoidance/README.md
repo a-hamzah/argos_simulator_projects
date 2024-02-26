@@ -24,7 +24,7 @@ cd argos_simulator_projects/obstacle_avoidance
 argos3 -c obstacleAvoidance.argos
 ```
 ## Demo
-![Peek 2024-01-26 05-08](https://github.com/a-hamzah/boundry_following_bot/assets/25130682/ae9d0eee-82d7-4b59-b8e4-824e1a2ee3de)
+![Peek 2024-01-26 05-08](https://github.com/a-hamzah/argos_simulator_projects/assets/25130682/10726ad2-3633-4114-ad92-9369d3df9a57)
 
 
 

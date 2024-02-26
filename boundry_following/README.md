@@ -20,6 +20,5 @@ cd argos_simulator_projects/boundry_following
 argos3 -c boundry_following.argos
 ```
 ## Demo
-![boundry_following_bot](https://github.com/a-hamzah/boundry_following_bot/assets/25130682/339e6ee5-6edd-4073-a87d-968994f53d9d)
-
+![boundry](https://github.com/a-hamzah/argos_simulator_projects/assets/25130682/fab521a9-4294-45ca-9a3f-665a3fa0f509)
 
